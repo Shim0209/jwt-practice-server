@@ -78,7 +78,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         // RSA 방식 아님 => HASH 암호방식
         String jwtToken = JWT.create()
-                .withSubject(JwtProperties.NAME) // 토큰 이름 (의미없음)
+                .withSubject(JwtProperties.SUBJECT) // 토큰 용도 (의미없음)
                 .withExpiresAt(new Date(System.currentTimeMillis()+(JwtProperties.EXPIRATION_TIME))) // 유효시간 설정
                 .withClaim("id", principalDetails.getUser().getId())
                 .withClaim("username", principalDetails.getUser().getUsername())
